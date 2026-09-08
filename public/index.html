@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Secure account access with password hashing and optional two-factor authentication.">
+  <title>Northstar Access</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="brand-panel">
+      <div class="brand-mark" aria-hidden="true">N</div>
+      <p class="eyebrow">NORTHSTAR / PRIVATE ACCESS</p>
+      <h1>Your account,<br><em>kept yours.</em></h1>
+      <p class="intro">A quiet, secure place for the work that matters. Passwords are hashed, sessions are protected, and suspicious sign-in attempts are slowed automatically.</p>
+      <div class="signal-list" aria-label="Security features">
+          <span><b>01</b> Bcrypt password hashing</span>
+        <span><b>02</b> Protected server sessions</span>
+        <span><b>03</b> Optional authenticator 2FA</span>
+      </div>
+      <p class="build-note">SECURITY IS A PRACTICE, NOT A PROMISE</p>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <div class="auth-brand"><span class="auth-brand-mark">N</span><span>Northstar</span><span class="secure-pill">SECURE ACCESS</span></div>
+        <div class="tab-row" role="tablist" aria-label="Account access">
+          <button class="tab active" data-view="login" role="tab" aria-selected="true">Sign in</button>
+          <button class="tab" data-view="register" role="tab" aria-selected="false">Create account</button>
+        </div>
+        <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+        <form id="login-form" class="auth-form" data-form="login">
+          <div class="form-heading"><span class="mono-label">WELCOME BACK</span><h2>Pick up where<br>you left off.</h2><p class="form-copy">Sign in with your Northstar credentials.</p></div>
+          <label>Email address<input type="email" name="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
+          <label>Password<div class="password-field"><input id="login-password" type="password" name="password" autocomplete="current-password" required minlength="8" placeholder="Your password"><button type="button" class="password-toggle" data-target="login-password" aria-label="Show password">Show</button></div></label>
+          <button class="primary-button" type="submit">Continue securely <span aria-hidden="true">&#8594;</span></button>
+        </form>
+
+        <form id="register-form" class="auth-form hidden" data-form="register">
+          <div class="form-heading"><span class="mono-label">NEW HERE?</span><h2>Make it<br>official.</h2></div>
+          <label>Display name<input type="text" name="name" autocomplete="name" required minlength="2" maxlength="60" placeholder="Alex Morgan"></label>
+          <label>Email address<input type="email" name="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
+          <label>Password<div class="password-field"><input id="register-password" type="password" name="password" autocomplete="new-password" required minlength="12" maxlength="128" placeholder="12+ characters"><button type="button" class="password-toggle" data-target="register-password" aria-label="Show password">Show</button></div></label>
+          <p class="field-hint">Use 12 or more characters. A password manager is a good idea.</p>
+          <button class="primary-button" type="submit">Create account <span aria-hidden="true">&#8594;</span></button>
+        </form>
+
+        <form id="two-factor-form" class="auth-form hidden" data-form="two-factor">
+          <div class="form-heading"><span class="mono-label">SECOND CHECK</span><h2>One more<br>signal.</h2></div>
+          <p class="form-copy">Enter the 6-digit code from your authenticator app to finish signing in.</p>
+          <label>Authenticator code<input type="text" name="token" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="000 000" autocomplete="one-time-code"></label>
+          <button class="primary-button" type="submit">Verify access <span aria-hidden="true">&#8594;</span></button>
+        </form>
+      </div>
+      <p class="legal"><span class="legal-dot"></span> Encrypted session &nbsp;·&nbsp; By continuing, you agree to keep your account details accurate.</p>
+    </section>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
